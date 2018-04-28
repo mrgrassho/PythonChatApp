@@ -50,7 +50,7 @@ class ChatServer:
         """Send data to all the connected sockets."""
         for sock in self.descriptors:
             if sock != self.srvsock:
-                sock.send(bytes(msg))
+                sock.send(bytes(msg, 'utf-8'))
         if (self.verbose):
             print(msg)
 
@@ -59,7 +59,7 @@ class ChatServer:
         newsock, (remhost, remport) = self.srvsock.accept()
         self.descriptors.append(newsock)
         msg = "You're connected to the ChatServer App.\r\n"
-        newsock.send(bytes(msg))
+        newsock.send(bytes(msg, 'utf-8'))
         str = 'Client joined %s:%s\r' % (remhost, remport)
         self.broadcast_string(str)
 
