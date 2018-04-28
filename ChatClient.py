@@ -57,10 +57,8 @@ class ChatClient:
         It's important to initialize a thread with one of the methods(receive
         or send) in order to receive/send messages both at the same time.
         """
-        # self.thread_send.start()
+        self.thread_send.start()
         self.thread_receive.start()
-        # self.receive_msg()
-        self.send_msg()
 
 
 c = ChatClient('localhost', 2626)
